@@ -36,7 +36,6 @@ import {
   getEventIdToNoteIdsSelector,
 } from './selectors';
 import * as i18n from './translations';
-import { useIsExperimentalFeatureEnabled } from '../../../../common/hooks/use_experimental_features';
 import { useLicense } from '../../../../common/hooks/use_license';
 import { TIMELINE_CONVERSATION_TITLE } from '../../../../assistant/content/conversations/translations';
 
@@ -172,7 +171,7 @@ const ActiveTimelineTab = memo<ActiveTimelineTabProps>(
     timelineType,
     showTimeline,
   }) => {
-    const isAssistantEnabled = useIsExperimentalFeatureEnabled('assistantEnabled');
+    const isAssistantEnabled = true; // useIsExperimentalFeatureEnabled('assistantEnabled');
     const getTab = useCallback(
       (tab: TimelineTabs) => {
         switch (tab) {
@@ -297,7 +296,7 @@ const TabsContentComponent: React.FC<BasicTimelineTab> = ({
   sessionViewConfig,
   timelineDescription,
 }) => {
-  const isAssistantEnabled = useIsExperimentalFeatureEnabled('assistantEnabled');
+  const isAssistantEnabled = true; // useIsExperimentalFeatureEnabled('assistantEnabled');
   const dispatch = useDispatch();
   const getActiveTab = useMemo(() => getActiveTabSelector(), []);
   const getShowTimeline = useMemo(() => getShowTimelineSelector(), []);

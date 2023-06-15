@@ -8,7 +8,6 @@
 import type { TimelineEventsDetailsItem } from '@kbn/timelines-plugin/common';
 import { useAssistantOverlay } from '@kbn/elastic-assistant';
 import { useCallback } from 'react';
-import { useIsExperimentalFeatureEnabled } from '../../../common/hooks/use_experimental_features';
 import { getPromptContextFromEventDetailsItem } from '../../../assistant/helpers';
 import {
   ALERT_SUMMARY_CONTEXT_DESCRIPTION,
@@ -56,7 +55,7 @@ export const useAssistant = ({
   dataFormattedForFieldBrowser,
   isAlert,
 }: UseAssistantParams): UseAssistantResult => {
-  const isAssistantEnabled = useIsExperimentalFeatureEnabled('assistantEnabled');
+  const isAssistantEnabled = true; // useIsExperimentalFeatureEnabled('assistantEnabled');
   const useAssistantHook = isAssistantEnabled ? useAssistantOverlay : useAssistantNoop;
   const getPromptContext = useCallback(
     async () => getPromptContextFromEventDetailsItem(dataFormattedForFieldBrowser ?? []),

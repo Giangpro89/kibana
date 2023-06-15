@@ -38,7 +38,6 @@ import { useLocalStorage } from '../../common/components/local_storage';
 import { SecuritySolutionPageWrapper } from '../../common/components/page_wrapper';
 import { DEFAULT_BYTES_FORMAT, DEFAULT_NUMBER_FORMAT } from '../../../common/constants';
 import { useSourcererDataView } from '../../common/containers/sourcerer';
-import { useIsExperimentalFeatureEnabled } from '../../common/hooks/use_experimental_features';
 import {
   KibanaServices,
   useGetUserCasesPermissions,
@@ -129,7 +128,7 @@ const renderOption = (
 );
 
 const DataQualityComponent: React.FC = () => {
-  const isAssistantEnabled = useIsExperimentalFeatureEnabled('assistantEnabled');
+  const isAssistantEnabled = true; // useIsExperimentalFeatureEnabled('assistantEnabled');
   const httpFetch = KibanaServices.get().http.fetch;
   const theme = useTheme();
   const toasts = useToasts();

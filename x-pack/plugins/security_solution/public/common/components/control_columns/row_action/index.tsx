@@ -21,7 +21,6 @@ import { getMappedNonEcsValue } from '../../../../timelines/components/timeline/
 
 import type { TimelineItem, TimelineNonEcsData } from '../../../../../common/search_strategy';
 import type { ColumnHeaderOptions, OnRowSelected } from '../../../../../common/types/timeline';
-import { useIsExperimentalFeatureEnabled } from '../../../hooks/use_experimental_features';
 
 type Props = EuiDataGridCellValueElementProps & {
   columnHeaders: ColumnHeaderOptions[];
@@ -70,7 +69,7 @@ const RowActionComponent = ({
   const { openFlyout } = useExpandableFlyoutContext();
 
   const dispatch = useDispatch();
-  const isSecurityFlyoutEnabled = useIsExperimentalFeatureEnabled('securityFlyoutEnabled');
+  const isSecurityFlyoutEnabled = true; // useIsExperimentalFeatureEnabled('securityFlyoutEnabled');
 
   const columnValues = useMemo(
     () =>

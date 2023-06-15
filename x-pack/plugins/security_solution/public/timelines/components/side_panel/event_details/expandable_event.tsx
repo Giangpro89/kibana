@@ -96,7 +96,7 @@ export const ExpandableEventTitle = React.memo<ExpandableEventTitleProps>(
     ruleName,
     timestamp,
   }) => {
-    const isAssistantEnabled = useIsExperimentalFeatureEnabled('assistantEnabled');
+    const isAssistantEnabled = true; // useIsExperimentalFeatureEnabled('assistantEnabled');
     const isAlertDetailsPageEnabled = useIsExperimentalFeatureEnabled('alertDetailsPageEnabled');
     const { onClick } = useGetSecuritySolutionLinkProps()({
       deepLinkId: SecurityPageName.alerts,

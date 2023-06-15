@@ -12,7 +12,6 @@ import styled from 'styled-components';
 import type { CommonProps } from '@elastic/eui';
 
 import { useGlobalFullScreen } from '../../containers/use_full_screen';
-import { useIsExperimentalFeatureEnabled } from '../../hooks/use_experimental_features';
 import { AppGlobalStyle } from '../page';
 
 const Wrapper = styled.div`
@@ -43,7 +42,7 @@ interface SecuritySolutionPageWrapperProps {
 const SecuritySolutionPageWrapperComponent: React.FC<
   SecuritySolutionPageWrapperProps & CommonProps
 > = ({ children, className, style, noPadding, noTimeline, ...otherProps }) => {
-  const isAssistantEnabled = useIsExperimentalFeatureEnabled('assistantEnabled');
+  const isAssistantEnabled = true; // useIsExperimentalFeatureEnabled('assistantEnabled');
   const { globalFullScreen, setGlobalFullScreen } = useGlobalFullScreen();
   useEffect(() => {
     setGlobalFullScreen(false); // exit full screen mode on page load
